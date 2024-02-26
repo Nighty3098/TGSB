@@ -19,7 +19,6 @@ from config import *
 from kb_builders import admin_panel, developer_panel, service_panel
 from MESSAGES_TEXT import *
 from spam import *
-from user_agents import *
 from validate import *
 
 
@@ -120,7 +119,6 @@ async def echo_whitelist(message: Message):
 async def send_logs(callback: types.CallbackQuery):
     if await check_user_id(user_id) == 0:
         await bot.send_document(user_id, log_file)
-
         logger.warning(f"Logs are sent to the user {user_id}")
     else:
         await callback.message.answer(NO_ACCESS)
@@ -132,7 +130,7 @@ async def remove_logs(callback: types.CallbackQuery):
     if await check_user_id(user_id) == 0:
         try:
             os.remove(log_file)
-            logger.info(f"{user_id} clear log")
+            logger.info(f"{user_id} cleared log")
             await callback.message.answer(DONE)
         except FileNotFoundError:
             logger.warning(f"log file not found ")
@@ -144,8 +142,8 @@ async def remove_logs(callback: types.CallbackQuery):
         await callback.message.answer(NO_ACCESS)
 
 
-@dp.message(Command("off"))
-async def server_off(message: Message):
+@dp.callback_query(F.data == "off")
+async def server_off(callback: types.CallbackQuery):
     if await check_user_id(user_id) == 0:
         with open(data_file, "r") as file:
             data = json.load(file)
@@ -157,14 +155,17 @@ async def server_off(message: Message):
             json.dump(data, f, indent=4)
 
         logger.critical(f"Server is down by {user_id}")
-        await message.answer("Сервер отключен для всех, кроме создателя")
+        await callback.message.edit_text(
+            "Сервер отключен для всех, кроме создателя",
+            reply_markup=await developer_panel(),
+        )
     else:
         logger.critical(f"{user_id} trying to stop server")
-        await message.answer(NO_ACCESS)
+        await callback.message.edit_text(NO_ACCESS)
 
 
-@dp.message(Command("on"))
-async def server_on(message: Message):
+@dp.callback_query(F.data == "on")
+async def server_on(callback: types.CallbackQuery):
     if await check_user_id(user_id) == 0:
         with open(data_file, "r") as file:
             data = json.load(file)
@@ -176,10 +177,13 @@ async def server_on(message: Message):
             json.dump(data, f, indent=4)
 
         logger.critical(f"Server is up by {user_id}")
-        await message.answer("Сервер включен для всех пользователей")
+        await callback.message.edit_text(
+            "Сервер включен для всех пользователей",
+            reply_markup=await developer_panel(),
+        )
     else:
         logger.critical(f"{user_id} trying to start server")
-        await message.answer(NO_ACCESS)
+        await callback.message.edit_text(NO_ACCESS)
 
 
 @dp.message(Command("adduser"))
