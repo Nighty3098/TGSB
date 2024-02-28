@@ -19,8 +19,9 @@ from loguru import *
 
 
 TOKEN = os.getenv("TGSB_TOKEN")
-data_file = "data.json"
+data_file = "data/data.json"
 log_file = "logs/TGSB.log"
+usernames = "data/names.txt"
 
 bot = Bot(TOKEN, parse_mode=ParseMode.HTML)
 dp = Dispatcher()

@@ -16,9 +16,13 @@ from aiogram.utils.markdown import *
 from requests.models import *
 
 from config import *
-from kb_builders import admin_panel, developer_panel, service_panel
+
+from keyboards.admin import *
+from keyboards.service import *
+from keyboards.dev import *
+
 from MESSAGES_TEXT import *
-from spam import *
+from spam.spam import *
 from validate import *
 
 
