@@ -31,6 +31,8 @@ async def developer_panel():
     )
     builder.adjust(1)
 
+    logger.debug("Creating developer panel")
+
     return builder.as_markup()
 
 
@@ -41,6 +43,8 @@ async def admin_panel():
         types.InlineKeyboardButton(text="Спам звонками", callback_data="call_spam")
     )
     builder.adjust(1)
+
+    logger.debug("Creating admin panel")
 
     return builder.as_markup()
 
@@ -54,4 +58,7 @@ async def service_panel():
     builder.add(types.InlineKeyboardButton(text="On service", callback_data="on"))
     builder.add(types.InlineKeyboardButton(text="  <<<  ", callback_data="menu"))
     builder.adjust(1)
+
+    logger.debug("Creating service panel")
+
     return builder.as_markup()

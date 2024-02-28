@@ -62,7 +62,7 @@ async def main_menu(message: Message) -> None:
 @dp.callback_query(F.data == "sys_stats")
 async def system_stats(callback: types.CallbackQuery):
     if await check_user_id(user_id) == 0:
-        logger.info(f"User: {user_id} open sys stats page")
+        logger.debug(f"User: {user_id} open sys stats page")
 
         cpu_usage = str(psutil.cpu_percent(interval=None, percpu=False))
         memory_usage = str(psutil.virtual_memory().percent)
@@ -77,7 +77,6 @@ async def system_stats(callback: types.CallbackQuery):
 @dp.callback_query(F.data == "service_ctrl")
 async def service_ctrl(callback: types.CallbackQuery):
     if await check_user_id(user_id) == 0:
-        logger.info(f"User: {user_id} open service ctrl page")
         with open(data_file, "r") as file:
             data = json.load(file)
 
@@ -118,7 +117,12 @@ async def echo_whitelist(message: Message):
 @dp.callback_query(F.data == "logs")
 async def send_logs(callback: types.CallbackQuery):
     if await check_user_id(user_id) == 0:
-        await bot.send_document(user_id, log_file)
+        file = FSInputFile(log_file, filename="logs.txt")
+        await callback.message.edit_text("Sending logs...")
+        await bot.send_chat_action(chat_id=user_id, action=ChatAction.UPLOAD_DOCUMENT)
+        await bot.send_document(chat_id=user_id, document=file)
+
+
         logger.warning(f"Logs are sent to the user {user_id}")
     else:
         await callback.message.answer(NO_ACCESS)
@@ -130,7 +134,7 @@ async def remove_logs(callback: types.CallbackQuery):
     if await check_user_id(user_id) == 0:
         try:
             os.remove(log_file)
-            logger.info(f"{user_id} cleared log")
+            logger.warning(f"{user_id} cleared log")
             await callback.message.answer(DONE)
         except FileNotFoundError:
             logger.warning(f"log file not found ")
@@ -296,17 +300,21 @@ async def remove_from_admins(message: Message):
 
 @dp.callback_query(F.data == "sms_spam")
 async def get_phone_number(callback: types.CallbackQuery):
-    await callback.message.edit_text("Введите номер телефона в формате 8XXXXXXXXXX")
+    await callback.message.edit_text(GET_PHONE)
 
 
 @dp.message()
 async def get_data_for_spam(message: Message):
-    phone = message.text
+    data = message.text
+    data = data.split(" ")
 
-    if phone_pattern.match(phone):
-        logger.info(f"Client: {user_id} send phone number: {phone}")
-        await message.answer(f"Введённый номер: {phone}\nНачинаю смс спам")
-        await start_sms_spam(phone)
+    phone = int(data[0])
+    cycles = int(data[1])
+
+    if phone_pattern.match(str(phone)):
+        logger.info(f"Client: {user_id} send phone number: {phone}, cycles: {cycles}")
+        await message.answer(f"Введённый номер: {phone}\nКоличество кругов: {cycles}\nНачинаю смс спам")
+        await start_sms_spam(phone, cycles)
     else:
         await message.answer("Неправильный формат номера")
         await message.answer(HELLO_FOR_CREATOR, reply_markup=await developer_panel())
