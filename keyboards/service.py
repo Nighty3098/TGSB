@@ -1,6 +1,7 @@
 import asyncio
 import json
 import logging
+import sys
 
 import psutil
 import requests
@@ -13,6 +14,9 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.utils.markdown import *
 from requests.models import *
 
+sys.path.append("../")
+from config import *
+
 
 async def service_panel():
     builder = InlineKeyboardBuilder()
@@ -23,5 +27,7 @@ async def service_panel():
     builder.add(types.InlineKeyboardButton(text="On service", callback_data="on"))
     builder.add(types.InlineKeyboardButton(text="  <<<  ", callback_data="menu"))
     builder.adjust(1)
+
+    logger.debug(f"Create service panel")
 
     return builder.as_markup()

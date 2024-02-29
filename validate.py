@@ -8,6 +8,8 @@ async def check_user_id(user_id):
     with open(data_file, "r") as file:
         users_ids = json.load(file)
 
+    if user_id in users_ids["blacklist"]:
+        return 5
     if user_id in users_ids["developer"]:
         return 0
     elif user_id in users_ids["admins"]:

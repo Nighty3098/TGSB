@@ -16,11 +16,10 @@ from aiogram.utils.markdown import *
 from requests.models import *
 
 from config import *
-
 from keyboards.admin import *
-from keyboards.service import *
 from keyboards.dev import *
-
+from keyboards.service import *
+from keyboards.user import *
 from MESSAGES_TEXT import *
 from spam.spam import *
 from validate import *
@@ -33,24 +32,27 @@ async def main_menu(message: Message) -> None:
     user_id = str(message.from_user.id)
 
     if await check_server():
-        if await check_user_id(user_id) == 0:
-            logger.info(f"Developer: {user_id} logged in")
-
-            await message.answer(
-                HELLO_FOR_CREATOR, reply_markup=await developer_panel()
-            )
-
-        elif await check_user_id(user_id) == 1:
-            logger.info(f"Admin: {user_id} logged in")
-
-            await message.answer(HELLO_FOR_ADMIN, reply_markup=await admin_panel())
-
-        elif await check_user_id(user_id) == 2:
-            logger.info(f"User: {user_id} started a bot")
-            await message.answer(HELLO_FOR_USER)
+        if await check_user_id(user_id) == 5:
+            await message.answer(BLACKLIST)
         else:
-            logger.warning(f"User: {user_id} not in whitelist")
-            await message.answer(MESSAGE_FOR_NOT_IN_WHITELIST)
+            if await check_user_id(user_id) == 0:
+                logger.info(f"Developer: {user_id} logged in")
+
+                await message.answer(
+                    HELLO_FOR_CREATOR, reply_markup=await developer_panel()
+                )
+
+            elif await check_user_id(user_id) == 1:
+                logger.info(f"Admin: {user_id} logged in")
+
+                await message.answer(HELLO_FOR_ADMIN, reply_markup=await admin_panel())
+
+            elif await check_user_id(user_id) == 2:
+                logger.info(f"User: {user_id} started a bot")
+                await message.answer(HELLO_FOR_USER, reply_markup=await user_panel())
+            else:
+                logger.warning(f"User: {user_id} not in whitelist")
+                await message.answer(MESSAGE_FOR_NOT_IN_WHITELIST)
 
     else:
         if await check_user_id(user_id) == 0:
@@ -125,7 +127,6 @@ async def send_logs(callback: types.CallbackQuery):
         await callback.message.edit_text("Sending logs...")
         await bot.send_chat_action(chat_id=user_id, action=ChatAction.UPLOAD_DOCUMENT)
         await bot.send_document(chat_id=user_id, document=file)
-
 
         logger.warning(f"Logs are sent to the user {user_id}")
     else:
@@ -302,6 +303,63 @@ async def remove_from_admins(message: Message):
         await message.answer(NO_ACCESS)
 
 
+@dp.message(Command("unblock"))
+async def unblock_user(message: Message):
+    if await check_user_id(user_id) == 1 or await check_user_id(user_id) == 0:
+        if message.text.startswith("/unblock"):
+            unblock_id = str(message.text).split(" ")
+
+            unblock_id = unblock_id[1]
+
+            with open(data_file, "r") as f:
+                data = json.load(f)
+
+            data["blacklist"].remove(unblock_id)
+
+            with open(data_file, "w") as f:
+                json.dump(data, f, indent=4)
+
+            logger.warning(f"{user_id} unblocked {unblock_id}")
+            await message.answer(f"Пользователь {unblock_id} разблокирован")
+
+        else:
+            pass
+
+    else:
+        logger.critical(f"{user_id} trying to remove admin")
+        await message.answer(NO_ACCESS)
+
+
+@dp.message(Command("block"))
+async def add_in_admins(message: Message):
+    if await check_user_id(user_id) == 1 or await check_user_id(user_id) == 0:
+        if message.text.startswith("/block"):
+            block_id = str(message.text).split(" ")
+
+            block_id = block_id[1]
+
+            if await check_user_id(block_id) == 0:
+                await message.answer("Нельзя заблокировать разраба")
+            else:
+                with open(data_file, "r") as f:
+                    data = json.load(f)
+
+                data["blacklist"].append(block_id)
+
+                with open(data_file, "w") as f:
+                    json.dump(data, f, indent=4)
+
+                logger.warning(f"{user_id} blocked {block_id}")
+                await message.answer(f"Пользователь {block_id} заблокирован")
+
+        else:
+            pass
+
+    else:
+        logger.critical(f"{user_id} trying to add new admin")
+        await message.answer(NO_ACCESS)
+
+
 @dp.callback_query(F.data == "sms_spam")
 async def get_phone_number(callback: types.CallbackQuery):
     await callback.message.edit_text(GET_PHONE)
@@ -309,16 +367,26 @@ async def get_phone_number(callback: types.CallbackQuery):
 
 @dp.message()
 async def get_data_for_spam(message: Message):
-    data = message.text
-    data = data.split(" ")
+    try:
+        data = message.text
+        data = data.split(" ")
 
-    phone = int(data[0])
-    cycles = int(data[1])
+        phone = int(data[0])
+        cycles = int(data[1])
 
-    if phone_pattern.match(str(phone)):
-        logger.info(f"Client: {user_id} send phone number: {phone}, cycles: {cycles}")
-        await message.answer(f"Введённый номер: {phone}\nКоличество кругов: {cycles}\nНачинаю смс спам")
-        await start_sms_spam(phone, cycles)
-    else:
-        await message.answer("Неправильный формат номера")
-        await message.answer(HELLO_FOR_CREATOR, reply_markup=await developer_panel())
+        if phone_pattern.match(str(phone)):
+            logger.info(
+                f"Client: {user_id} send phone number: {phone}, cycles: {cycles}"
+            )
+            await message.answer(
+                f"Введённый номер: {phone}\nКоличество кругов: {cycles}\nНачинаю смс спам"
+            )
+            await start_sms_spam(phone, cycles)
+        else:
+            await message.answer("Неправильный формат номера")
+            await message.answer(
+                HELLO_FOR_CREATOR, reply_markup=await developer_panel()
+            )
+    except IndexError as err:
+        logger.error(err)
+        await message.answer("Неправильный формат ввода\nПопробуйте заново")

@@ -1,6 +1,7 @@
 import asyncio
 import json
 import logging
+import sys
 
 import psutil
 import requests
@@ -13,6 +14,9 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.utils.markdown import *
 from requests.models import *
 
+sys.path.append("../")
+from config import *
+
 
 async def admin_panel():
     builder = InlineKeyboardBuilder()
@@ -22,6 +26,6 @@ async def admin_panel():
     )
     builder.adjust(1)
 
+    logger.debug(f"Create admin panel")
+
     return builder.as_markup()
-
-
