@@ -140,12 +140,10 @@ async def remove_logs(callback: types.CallbackQuery):
         try:
             os.remove(log_file)
             logger.warning(f"{user_id} cleared log")
-            await callback.message.answer(DONE)
+            await callback.message.answer(RM_LOG)
         except FileNotFoundError:
             logger.warning(f"log file not found ")
             await callback.message.answer(FILE_NOT_FOUND)
-        else:
-            await callback.message.answer(RM_LOG)
     else:
         logger.warning(f"{user_id} trying to clear logs")
         await callback.message.answer(NO_ACCESS)
@@ -371,7 +369,7 @@ async def get_data_for_spam(message: Message):
         data = message.text
         data = data.split(" ")
 
-        phone = int(data[0])
+        phone = str(data[0])
         cycles = int(data[1])
 
         if phone_pattern.match(str(phone)):

@@ -9,6 +9,7 @@ from user_agent import generate_user_agent
 
 from spam.gen_user_data import gen_agents, gen_email, gen_password, gen_username
 from spam.proxy import *
+from spam.mask import *
 
 sys.path.append("../")
 from config import *
@@ -28,3 +29,11 @@ async def start_sms_spam(phone, cycles):
             f"Generate new user data: name: {name}, password: {password}, email: {email}"
         )
         logger.debug(f"Proxy: {await generate_proxy()}")
+
+
+        phonee=mask(phone, "#(###)###-##-##")     
+        logger.debug(f"Phone: {phonee}")
+        phonee=mask(phone[:1], "+# (###) ###-##-##")     
+        logger.debug(f"Phone: {phonee}")
+        phonee=mask(phone[:1], "+# (###) ### - ## - ##")     
+        logger.debug(f"Phone: {phonee}")
