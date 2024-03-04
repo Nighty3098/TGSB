@@ -380,11 +380,9 @@ async def get_data_for_spam(message: Message):
                 f"Введённый номер: {phone}\nКоличество кругов: {cycles}\nНачинаю смс спам"
             )
             await start_sms_spam(phone, cycles)
+            await message.answer("СМС спам завершён")
         else:
-            await message.answer("Неправильный формат номера")
-            await message.answer(
-                HELLO_FOR_CREATOR, reply_markup=await developer_panel()
-            )
+            await message.answer("Неправильный формат номера\nПопробуйте заново")
     except IndexError as err:
         logger.error(err)
         await message.answer("Неправильный формат ввода\nПопробуйте заново")
