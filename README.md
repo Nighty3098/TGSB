@@ -1,10 +1,27 @@
+<div class="badges" align="center">
+	<img src="https://img.shields.io/github/last-commit/Nighty3098/TGSB?style=for-the-badge&logo=github&color=1d67d5&logoColor=D9E0EE&labelColor=0d1117"/>
+	<img src="https://img.shields.io/github/stars/Nighty3098/TGSB?style=for-the-badge&logo=apachespark&color=1dd55e&logoColor=D9E0EE&labelColor=0d1117"/>
+	<img src="https://img.shields.io/github/v/release/Nighty3098/TGSB?style=for-the-badge&logo=gitbook&color=a31dd5&logoColor=D9E0EE&labelColor=0d1117"/>
+</div>
+
+<div id="social" align=center>
+	<a href="https://discord.gg/#9707" target="blank"><img src="https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white"/></a>
+	<a href="https://t.me/Night3098" target="blank"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/></a>
+	<a href="mailto:night3098game@gmail.com" target="blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+	<a href="https://www.reddit.com/user/Night3098" target="blank"><img src="https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white"/></a>
+</div>
+
+<div id="soft" align=center>
+	<img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+    <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" />
+</div>
+
 <h1 align="center">  TGSM - телеграм сервис смс спама </h1>
 <h2 align="center">Функционал:</h2>
 
 
-
 <h3 align="center">Для пользователей</h3>
-
  - btn - "смс спам"
  - btn - "спам звонками"
 
