@@ -1,3 +1,8 @@
+<h1 align="center">TGSB - SMS bomber. TG bot service written in python and aiogram</h1>
+<h3 align="center">!!! Use at your own risk. The developer is not responsible for your actions !!!</h3>
+
+---
+
 <div class="badges" align="center">
 	<img src="https://img.shields.io/github/last-commit/Nighty3098/TGSB?style=for-the-badge&logo=github&color=1d67d5&logoColor=D9E0EE&labelColor=0d1117"/>
 	<img src="https://img.shields.io/github/stars/Nighty3098/TGSB?style=for-the-badge&logo=apachespark&color=1dd55e&logoColor=D9E0EE&labelColor=0d1117"/>
@@ -17,48 +22,47 @@
     <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" />
 </div>
 
-<h1 align="center">  TGSM - телеграм сервис смс спама </h1>
-<h2 align="center">Функционал:</h2>
+<h2 align="center">Functional:</h2>
 
 
-<h3 align="center">Для пользователей</h3>
- - btn - "смс спам"
- - btn - "спам звонками"
+<h3 align="center">For users</h3>
+ - btn - "SMA spam"
+ - btn - "Call spam"
 
 
-<h3 align="center">Для администратора</h3>
+<h3 align="center">For admins</h3>
 
-- /adduser %user_id% - Добавить пользователя в белый список
-- /removeuser %user_id% - Удалить пользователя из белого списка
-- /addadmin %admin_id% - Добавить админа
-- /removeadmin %admin_id% - Удалить админа
-- /whitelist - Вывести содержимое whitelist
+- /adduser %user_id% - Add user to whitelist
+- /removeuser %user_id% - Remove user from whitelist
+- /addadmin %admin_id% - Add admin
+- /removeadmin %admin_id% - Remove admin
+- /whitelist - Send whitelist
 
-- btn - "Спам смс"
-- btn - "Спам звонками"
+- btn - "SMS spam"
+- btn - "Call cpam"
 
 
-<h3 align="center">Для создателя</h3>
+<h3 align="center">For creator</h3>
 
-- /addadmin %admin_id% - Добавить админа
-- /removeadmin %admin_id% - Удалить админа
-- /adduser %user_id% - Добавить пользователя в белый список
-- /removeuser %user_id% - Удалить пользователя из белого списка
-- /whitelist - Вывести содержимое whitelist
-- /block %user_id% - Заблокировать пользователя
-- /unblock %user_id% - Разблокировать пользователя
+- /addadmin %admin_id% - Add adnim
+- /removeadmin %admin_id% - Remove admin
+- /adduser %user_id% - Add user to whitelist
+- /removeuser %user_id% - Remove user from whitelist
+- /whitelist - Send whitelist
+- /block %user_id% - Block user
+- /unblock %user_id% - Unblock user
 
-- btn - "управление сервисом" : 
+- btn - "Service control" : 
     - btn - "sys stats"
     - btn - "logs"
     - btn - "clear log"
     - btn - "off"
     - btn - "on"
 
-- btn - "смс спам"
-- btn - "спам звонками"
+- btn - "SMS spam"
+- btn - "Call cpam"
 
-<h1 align="center">Структура проекта</h1>
+<h1 align="center">Structure</h1>
 
 ```
 .
@@ -88,7 +92,7 @@
 └── validate.py
 ```
 
-<h1 align="center">Зависимости для проекта</h1>
+<h1 align="center">Dependencies</h1>
 
 ```
 aiofiles==23.2.1
@@ -130,7 +134,7 @@ yarg==0.1.9
 yarl==1.9.4
 ```
 
-<h1 align="center">Установка и использование</h1>
+<h1 align="center">Installing</h1>
 
 
 ```
