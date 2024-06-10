@@ -4,7 +4,7 @@
 <div class="badges" align="center">
     <a href="./LICENSE.md"><img  class="badge" src="https://img.shields.io/github/license/Nighty3098/TGSB?style=for-the-badge&color=a6e0b8&logoColor=ffffff&labelColor=1c1c29"  style="border-radius: 5px;"/></a>
     <br><br>
-	<img src="https://invidget.switchblade.xyz/r8jWX8ugDd" style="border-radius: 15px;"/><br><br>
+	<a href="https://discord.gg/tnHSEc2cZv"><img src="https://invidget.switchblade.xyz/r8jWX8ugDd" style="border-radius: 15px;"/></a><br><br>
 	<a href="https://discord.gg/#9707" target="blank"><img src="https://img.shields.io/badge/Discord-%237589d5.svg?style=for-the-badge&logo=discord&logoColor=black"/></a>
 	<a href="https://t.me/Night3098" target="blank"><img src="https://img.shields.io/badge/Telegram-7dc4e4?style=for-the-badge&logo=telegram&logoColor=black"/></a>
 	<a href="mailto:night3098game@gmail.com" target="blank"><img src="https://img.shields.io/badge/Gmail-f5a7a0?style=for-the-badge&logo=gmail&logoColor=black"/></a>
