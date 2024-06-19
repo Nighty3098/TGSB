@@ -17,7 +17,6 @@ from requests.models import *
 sys.path.append("../")
 from config import *
 
-
 async def admin_panel():
     builder = InlineKeyboardBuilder()
     builder.add(types.InlineKeyboardButton(text="Смс спам", callback_data="sms_spam"))
