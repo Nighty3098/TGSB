@@ -5,7 +5,6 @@ from config import *
 
 
 async def check_user_id(user_id):
-    try:
         with open(data_file, "r") as file:
             users_ids = json.load(file)
 
@@ -19,13 +18,10 @@ async def check_user_id(user_id):
             return 2
         else:
             return 3
-    except Exception as err:
-        logger.error(f"{err}")
 
 
 
 async def check_server():
-    try:
         with open(data_file, "r") as file:
             data = json.load(file)
 
@@ -33,5 +29,3 @@ async def check_server():
             return True
         else:
             return False
-    except Exception as err:
-        logger.error(f"{err}")

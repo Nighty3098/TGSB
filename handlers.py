@@ -45,21 +45,23 @@ async def main_menu(message: Message) -> None:
             else:
                 if await check_user_id(user_id) == 0:
                     logger.info(f"Developer: {user_id} logged in")
-
+                    await message.answer_sticker(f'CAACAgIAAxkBAAEGTeRmdE-doD9AK-sKJTuZASJWoEH14QACvgUAAsEYngvKUihSmkk59jUE')
                     await message.answer(
                         HELLO_FOR_CREATOR, reply_markup=await developer_panel()
                     )
 
                 elif await check_user_id(user_id) == 1:
                     logger.info(f"Admin: {user_id} logged in")
-
+                    await message.answer_sticker(f'CAACAgIAAxkBAAEGTddmdE7rmfvBLTcZrvcsN-INxr7lGwACngUAAsEYngv9nvJaf3JwFzUE')
                     await message.answer(HELLO_FOR_ADMIN, reply_markup=await admin_panel())
 
                 elif await check_user_id(user_id) == 2:
                     logger.info(f"User: {user_id} started a bot")
+                    await message.answer_sticker(f'CAACAgIAAxkBAAEGTdtmdE79a_lU-0D0M1nDvXA-iV58fAACjgUAAsEYngt5UY-E655JgDUE')
                     await message.answer(HELLO_FOR_USER, reply_markup=await user_panel())
                 else:
                     logger.warning(f"User: {user_id} not in whitelist")
+                    await message.answer_sticker(f'CAACAgIAAxkBAAEGTd1mdE9CFw5gAnDwKvqtgqcQLFfkeAAC0AUAAsEYngtpgpEQVNsfsjUE')
                     await message.answer(MESSAGE_FOR_NOT_IN_WHITELIST)
 
         else:

