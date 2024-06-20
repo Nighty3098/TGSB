@@ -1,3 +1,0 @@
-2024-06-20 18:41:03.571 | INFO     | handlers:main_menu:40 - {'ok': True, 'result': {'message_id': 2814, 'from': {'id': 6959800298, 'is_bot': True, 'first_name': 'SMSBomber', 'username': 'project3098_bot'}, 'chat': {'id': 1660218648, 'first_name': 'Nighty3098', 'username': 'Night3098', 'type': 'private'}, 'date': 1718883663, 'text': 'New user:1660218648\n@Night3098', 'entities': [{'offset': 20, 'length': 10, 'type': 'mention'}]}}
-2024-06-20 18:41:03.572 | INFO     | handlers:main_menu:47 - Developer: 1660218648 logged in
-2024-06-20 18:41:03.572 | DEBUG    | keyboards.dev:developer_panel:34 - Create developer panel
