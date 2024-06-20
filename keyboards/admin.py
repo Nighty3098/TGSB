@@ -18,13 +18,16 @@ sys.path.append("../")
 from config import *
 
 async def admin_panel():
-    builder = InlineKeyboardBuilder()
-    builder.add(types.InlineKeyboardButton(text="Смс спам", callback_data="sms_spam"))
-    builder.add(
-        types.InlineKeyboardButton(text="Спам звонками", callback_data="call_spam")
-    )
-    builder.adjust(1)
+    try:
+        builder = InlineKeyboardBuilder()
+        builder.add(types.InlineKeyboardButton(text="Смс спам", callback_data="sms_spam"))
+        builder.add(
+            types.InlineKeyboardButton(text="Спам звонками", callback_data="call_spam")
+        )
+        builder.adjust(1)
 
-    logger.debug(f"Create admin panel")
+        logger.debug(f"Create admin panel")
 
-    return builder.as_markup()
+        return builder.as_markup()
+    except Exception as err:
+        logger.error(f"{err}")

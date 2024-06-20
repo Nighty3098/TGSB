@@ -7,7 +7,10 @@ from user_agent import generate_user_agent
 
 
 async def generate_proxy():
-    proxy = get(
-        "https://gimmeproxy.com/api/getProxy?curl=true&protocol=http&supportsHttps=true"
-    ).text
-    return {proxy}
+    try:
+        proxy = get(
+            "https://gimmeproxy.com/api/getProxy?curl=true&protocol=http&supportsHttps=true"
+        ).text
+        return {proxy}
+    except Exception as err:
+        logger.error(f"{err}")
