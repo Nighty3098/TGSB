@@ -4,7 +4,7 @@ from threading import Thread
 import requests
 from requests import get, post
 from user_agent import generate_user_agent
-
+from logs.send_logs import *
 
 async def generate_proxy():
     try:
@@ -14,3 +14,4 @@ async def generate_proxy():
         return {proxy}
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()

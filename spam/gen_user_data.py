@@ -9,7 +9,6 @@ from user_agent import generate_user_agent
 from config import *
 from handlers import *
 
-
 async def gen_password():
     password = ""
     for i in range(14):

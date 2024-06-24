@@ -23,7 +23,7 @@ from keyboards.user import *
 from MESSAGES_TEXT import *
 from spam.spam import *
 from validate import *
-
+from logs.send_logs import *
 
 @dp.message(CommandStart())
 async def main_menu(message: Message) -> None:
@@ -73,8 +73,11 @@ async def main_menu(message: Message) -> None:
             else:
                 logger.warning("Server is not up")
                 await message.answer(SERVER_IS_NOT_UP)
+        
+        await send_log_to_dev()
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -94,6 +97,7 @@ async def system_stats(callback: types.CallbackQuery):
             logger.warning(f"User: {user_id} trying to open sys stats page")
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -116,6 +120,7 @@ async def service_ctrl(callback: types.CallbackQuery):
             logger.warning(f"User: {user_id} trying to open service ctrl page")
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -128,6 +133,7 @@ async def menu(callback: types.CallbackQuery):
         )
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -146,6 +152,7 @@ async def echo_whitelist(message: Message):
             logger.warning(f"User: {user_id} trying to looking at the whitelist")
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -163,6 +170,7 @@ async def send_logs(callback: types.CallbackQuery):
             await callback.message.answer(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -183,6 +191,7 @@ async def remove_logs(callback: types.CallbackQuery):
             await callback.message.answer(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 @dp.callback_query(F.data == "off")
@@ -208,6 +217,7 @@ async def server_off(callback: types.CallbackQuery):
             await callback.message.edit_text(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -234,6 +244,7 @@ async def server_on(callback: types.CallbackQuery):
             await callback.message.edit_text(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -265,6 +276,7 @@ async def add_in_whitelist(message: Message):
             await message.answer(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -296,6 +308,7 @@ async def remove_from_whitelist(message: Message):
             await message.answer(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 @dp.message(Command("addadmin"))
@@ -326,6 +339,7 @@ async def add_in_admins(message: Message):
             await message.answer(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -357,6 +371,7 @@ async def remove_from_admins(message: Message):
             await message.answer(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -388,6 +403,7 @@ async def unblock_user(message: Message):
             await message.answer(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -422,6 +438,7 @@ async def add_in_admins(message: Message):
             await message.answer(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
 
 
@@ -455,6 +472,7 @@ async def get_data_for_spam(message: Message):
             )
     except Exception as err:
         logger.error(f"{err}")
+        await send_log_to_dev()
 
     except IndexError as err:
         logger.error(err)
