@@ -36,8 +36,7 @@ async def main_menu(message: Message) -> None:
         username = member.user.username
 
         msg = f"New user:{user_id}\n@{username}"
-        url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id=1660218648&text={msg}"
-        logger.info((requests.get(url).json()))
+        await bot.send_message(1660218648, msg, allow_sending_without_reply=True)
 
         if await check_server():
             if await check_user_id(user_id) == 5:
