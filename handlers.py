@@ -208,7 +208,7 @@ async def server_off(callback: types.CallbackQuery):
 
             logger.critical(f"Server is down by {user_id}")
             await callback.message.edit_text(
-                "Сервер отключен для всех, кроме создателя",
+                "Сервер отключен для всех, кроме создателя\n\n"+HELLO_FOR_CREATOR,
                 reply_markup=await developer_panel(),
             )
         else:
@@ -235,7 +235,7 @@ async def server_on(callback: types.CallbackQuery):
 
             logger.critical(f"Server is up by {user_id}")
             await callback.message.edit_text(
-                "Сервер включен для всех пользователей",
+                "Сервер включен для всех пользователей\n\n"+HELLO_FOR_CREATOR,
                 reply_markup=await developer_panel(),
             )
         else:
