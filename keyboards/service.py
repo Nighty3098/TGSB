@@ -28,6 +28,6 @@ async def service_panel():
     builder.add(types.InlineKeyboardButton(text="  <<<  ", callback_data="menu"))
     builder.adjust(1)
 
-    logger.debug(f"Create service panel")
+    logger.debug("Create service panel")
 
     return builder.as_markup()

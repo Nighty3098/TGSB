@@ -4,12 +4,11 @@ import sys
 
 import loguru
 import pretty_errors
-from aiogram import *
-from aiogram.enums import *
-from aiogram.filters import *
-from aiogram.types import *
-from aiogram.utils.markdown import *
-from loguru import *
+import aiogram.enums 
+import aiogram.filters 
+import aiogram.types
+import aiogram.utils.markdown 
+from aiogram import * 
 
 # users role
 # 0 - создатель
@@ -23,11 +22,11 @@ data_file = "data/data.json"
 log_file = "logs/TGSB.log"
 usernames = "data/names.txt"
 
-bot = Bot(TOKEN, parse_mode=ParseMode.HTML)
+bot = Bot(TOKEN)
 dp = Dispatcher()
 
 phone_pattern = re.compile(
-    r"^(\+7|7|8)?[\s\-]?\(?[0-9]{3}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$"
+    r"^(\+?7|8)?[-\s.]?(\d{3})[-\s.]?(\d{3})[-\s.]?(\d{2})[-\s.]?(\d{2})$"
 )
 
 

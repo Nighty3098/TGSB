@@ -26,7 +26,7 @@ async def admin_panel():
         )
         builder.adjust(1)
 
-        logger.debug(f"Create admin panel")
+        logger.debug("Create admin panel")
 
         return builder.as_markup()
     except Exception as err:
