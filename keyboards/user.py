@@ -26,6 +26,6 @@ async def user_panel():
     )
     builder.adjust(1)
 
-    logger.debug(f"Create user panel")
+    logger.debug("Create user panel")
 
     return builder.as_markup()

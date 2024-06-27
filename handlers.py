@@ -44,23 +44,23 @@ async def main_menu(message: Message) -> None:
             else:
                 if await check_user_id(user_id) == 0:
                     logger.info(f"Developer: {user_id} logged in")
-                    await message.answer_sticker(f'CAACAgIAAxkBAAEGTeRmdE-doD9AK-sKJTuZASJWoEH14QACvgUAAsEYngvKUihSmkk59jUE')
+                    await message.answer_sticker('CAACAgIAAxkBAAEGTeRmdE-doD9AK-sKJTuZASJWoEH14QACvgUAAsEYngvKUihSmkk59jUE')
                     await message.answer(
                         HELLO_FOR_CREATOR, reply_markup=await developer_panel()
                     )
 
                 elif await check_user_id(user_id) == 1:
                     logger.info(f"Admin: {user_id} logged in")
-                    await message.answer_sticker(f'CAACAgIAAxkBAAEGTddmdE7rmfvBLTcZrvcsN-INxr7lGwACngUAAsEYngv9nvJaf3JwFzUE')
+                    await message.answer_sticker('CAACAgIAAxkBAAEGTddmdE7rmfvBLTcZrvcsN-INxr7lGwACngUAAsEYngv9nvJaf3JwFzUE')
                     await message.answer(HELLO_FOR_ADMIN, reply_markup=await admin_panel())
 
                 elif await check_user_id(user_id) == 2:
                     logger.info(f"User: {user_id} started a bot")
-                    await message.answer_sticker(f'CAACAgIAAxkBAAEGTdtmdE79a_lU-0D0M1nDvXA-iV58fAACjgUAAsEYngt5UY-E655JgDUE')
+                    await message.answer_sticker('CAACAgIAAxkBAAEGTdtmdE79a_lU-0D0M1nDvXA-iV58fAACjgUAAsEYngt5UY-E655JgDUE')
                     await message.answer(HELLO_FOR_USER, reply_markup=await user_panel())
                 else:
                     logger.warning(f"User: {user_id} not in whitelist")
-                    await message.answer_sticker(f'CAACAgIAAxkBAAEGTd1mdE9CFw5gAnDwKvqtgqcQLFfkeAAC0AUAAsEYngtpgpEQVNsfsjUE')
+                    await message.answer_sticker('CAACAgIAAxkBAAEGTd1mdE9CFw5gAnDwKvqtgqcQLFfkeAAC0AUAAsEYngtpgpEQVNsfsjUE')
                     await message.answer(MESSAGE_FOR_NOT_IN_WHITELIST)
 
         else:
@@ -183,7 +183,7 @@ async def remove_logs(callback: types.CallbackQuery):
                 logger.warning(f"{user_id} cleared log")
                 await callback.message.answer(RM_LOG)
             except FileNotFoundError:
-                logger.warning(f"log file not found ")
+                logger.warning("log file not found ")
                 await callback.message.answer(FILE_NOT_FOUND)
         else:
             logger.warning(f"{user_id} trying to clear logs")
@@ -265,9 +265,6 @@ async def add_in_whitelist(message: Message):
                 logger.warning(f"{user_id} added new user {new_user_id}")
                 await message.answer(f"Пользователь {new_user_id} добавлен в белый список")
 
-            else:
-                pass
-
         else:
             logger.critical(f"{user_id} trying to add new user")
             await message.answer(NO_ACCESS)
@@ -297,9 +294,6 @@ async def remove_from_whitelist(message: Message):
                 logger.warning(f"{user_id} removed user {rm_user_id}")
                 await message.answer(f"Пользователь {rm_user_id} удалён из белого списка")
 
-            else:
-                pass
-
         else:
             logger.critical(f"{user_id} trying to remove user")
             await message.answer(NO_ACCESS)
@@ -327,9 +321,6 @@ async def add_in_admins(message: Message):
 
                 logger.warning(f"{user_id} added new admin {new_admin_id}")
                 await message.answer(f"Пользователь {new_admin_id} добавлен в админку")
-
-            else:
-                pass
 
         else:
             logger.critical(f"{user_id} trying to add new admin")
@@ -360,9 +351,6 @@ async def remove_from_admins(message: Message):
                 logger.warning(f"{user_id} removed admin {rm_admin_id}")
                 await message.answer(f"Пользователь {rm_admin_id} удалён из админов")
 
-            else:
-                pass
-
         else:
             logger.critical(f"{user_id} trying to remove admin")
             await message.answer(NO_ACCESS)
@@ -391,9 +379,6 @@ async def unblock_user(message: Message):
 
                 logger.warning(f"{user_id} unblocked {unblock_id}")
                 await message.answer(f"Пользователь {unblock_id} разблокирован")
-
-            else:
-                pass
 
         else:
             logger.critical(f"{user_id} trying to remove admin")
@@ -426,9 +411,6 @@ async def add_in_admins(message: Message):
 
                     logger.warning(f"{user_id} blocked {block_id}")
                     await message.answer(f"Пользователь {block_id} заблокирован")
-
-            else:
-                pass
 
         else:
             logger.critical(f"{user_id} trying to add new admin")

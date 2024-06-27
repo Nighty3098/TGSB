@@ -63,3 +63,5 @@ BLACKLIST = """
 Вы находитесь в чёрном списке
 Сори (
 """
+
+SMS_ERR = """SMS Spam error"""

@@ -31,6 +31,6 @@ async def developer_panel():
     )
     builder.adjust(1)
 
-    logger.debug(f"Create developer panel")
+    logger.debug("Create developer panel")
 
     return builder.as_markup()
