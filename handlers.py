@@ -200,7 +200,6 @@ async def server_off(callback: types.CallbackQuery):
             with open(data_file, "r") as file:
                 data = json.load(file)
 
-            data["is_server_up"] = [data.get("is_server_up")]
             data["is_server_up"] = False
 
             with open(data_file, "w") as f:
@@ -227,7 +226,6 @@ async def server_on(callback: types.CallbackQuery):
             with open(data_file, "r") as file:
                 data = json.load(file)
 
-            data["is_server_up"] = [data.get("is_server_up")]
             data["is_server_up"] = True
 
             with open(data_file, "w") as f:
@@ -472,7 +470,3 @@ async def get_data_for_spam(message: Message):
     except Exception as err:
         logger.error(f"{err}")
         await send_log_to_dev()
-
-    except IndexError as err:
-        logger.error(err)
-        await message.answer("Неправильный формат ввода\nПопробуйте заново")
