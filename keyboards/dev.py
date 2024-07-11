@@ -22,12 +22,12 @@ async def developer_panel():
     builder = InlineKeyboardBuilder()
     builder.add(
         types.InlineKeyboardButton(
-            text="Управление сервисом", callback_data="service_ctrl"
+            text="🚀 Service management", callback_data="service_ctrl"
         )
     )
-    builder.add(types.InlineKeyboardButton(text="Смс спам (бета)", callback_data="sms_spam"))
+    builder.add(types.InlineKeyboardButton(text="💬 SMS spam (beta)", callback_data="sms_spam"))
     builder.add(
-        types.InlineKeyboardButton(text="Спам звонками (в разработке)", callback_data="call_spam")
+        types.InlineKeyboardButton(text="📞 Spam calls (in development)", callback_data="call_spam")
     )
     builder.adjust(1)
 

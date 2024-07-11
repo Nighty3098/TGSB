@@ -1,67 +1,67 @@
 HELLO_FOR_ADMIN = """
-Привет админ.
-Для тебя доступны следующие команды:
+👻 Hello admin.
+The following commands are available for you:
 
-/adduser %user_id% - Добавить пользователя в белый список
-/removeuser %user_id% - Удалить пользователя из белого списка
-/addadmin %admin_id% - Добавить админа
-/removeadmin %admin_id% - Удалить админа
-/whitelist - Вывести содержимое whitelist
+➡️ /adduser %user_id% - Add user to whitelist
+➡️ /removeuser %user_id% - Remove user from whitelist
+➡️ /addadmin %admin_id% - Add admin
+➡️ /removeadmin %admin_id% - Remove admin
+➡️ /whitelist - Display whitelist contents
 """
 
 HELLO_FOR_CREATOR = """
-Привет разраб.
-Для тебя доступны следующие команды:
+👻 Hi developer.
+The following commands are available for you:
 
-/addadmin %admin_id% - Добавить админа
-/removeadmin %admin_id% - Удалить админа
-/adduser %user_id% - Добавить пользователя в белый список
-/removeuser %user_id% - Удалить пользователя из белого списка
-/whitelist - Вывести содержимое whitelist
-/block %user_id% - Заблокировать пользователя
-/unblock %user_id% - Разблокировать пользователя
+➡️ /addadmin %admin_id% - Add admin
+➡️ /removeadmin %admin_id% - Remove admin
+➡️ /adduser %user_id% - Add user to whitelist
+➡️ /removeuser %user_id% - Remove user from whitelist
+➡️ /whitelist - Display whitelist contents
+➡️ /block %user_id% - Block user
+➡️ /unblock %user_id% - Unblock user
 """
 
 HELLO_FOR_USER = """
-Привет, этот бот представляет собой сервис для смс спама и спама звонками.
-Выбери нужный пункт
+👻 Hi, this bot is a service for sms spam and spam calls.
+✅ Select the desired item
 """
 
 MESSAGE_FOR_NOT_IN_WHITELIST = """
-Этот бот предназначен для определённого круга лиц.
-Если вы хотите пользоваться ботом, вы можете скачать исходники и настроить его под себя.
-https://github.com/Nighty3098/TGSB
+🔴 This bot is intended for a specific set of people. 🔴
+If you want to use the bot, you can download the sources and customize it to your liking.
+➡️ https://github.com/Nighty3098/TGSB
 """
 
 SERVER_IS_NOT_UP = """
-Сервер отключен главным администратором. Пожалуйста, подождите включения.
+🔴 The server is disabled by the main administrator. Please wait for it to be turned back on. 🔴 
 """
 
 NO_ACCESS = """
-У вас нет доступа к этой функции
+❌ You do not have access to this feature ❌
 """
 
 FILE_NOT_FOUND = """
-Ошибка. Файл не найден.
+❌ Error. File not found. ❌
 """
 
 DONE = """
-Команда выполнена успешно
+🟢 Command completed successfully 🟢
 """
 
 RM_LOG = """
-Логи успешно удалены
+🟢 Logs successfully deleted 🟢
 """
 
 GET_PHONE = """
-Введи через пробел:
-    Номер телефона в формате 8XXXXXXXXXX
-    Количество кругов
+💬 Enter with a space:
+        Phone number in 8XXXXXXXXXXXXXXXXXXXXXXXX format
+        Number of laps
 """
 
 BLACKLIST = """
-Вы находитесь в чёрном списке
-Сори (
+🔴 You are blacklisted 🔴
+Sory (
 """
 
-SMS_ERR = """SMS Spam error"""
+SMS_ERR = """ 🔴 SMS Spam error 🔴"""
