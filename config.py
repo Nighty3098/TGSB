@@ -11,15 +11,15 @@ import aiogram.utils.markdown
 from aiogram import * 
 
 # users role
-# 0 - создатель
-# 1 - админ
-# 2 - пользователь
-# 3 - нет доступа
+# 0 - creator
+# 1 - admin
+# 2 - user
+# 3 - don't access
 
-
+home_dir = os.environ['HOME']
 TOKEN = os.getenv("TGSB_TOKEN")
 data_file = "data/data.json"
-log_file = "logs/TGSB.log"
+log_file = home_dir + "/logs/TGSB.log";
 usernames = "data/names.txt"
 
 bot = Bot(TOKEN)
@@ -46,15 +46,3 @@ logger.add(
     backtrace=True,
     diagnose=True,
 )
-
-"""
-logger.add(
-    log_file,
-    level="DEBUG",
-    rotation="10000 MB",
-    retention="7 days",
-    format="{time: HH:mm:ss | YYYY-MM-DD} | {level} | {message} | ",
-    backtrace=True,
-    diagnose=True,
-)
-"""

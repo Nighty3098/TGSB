@@ -207,7 +207,7 @@ async def server_off(callback: types.CallbackQuery):
 
             logger.critical(f"Server is down by {user_id}")
             await callback.message.edit_text(
-                "Сервер отключен для всех, кроме создателя\n\n"+HELLO_FOR_CREATOR,
+                "The server is disabled for everyone except the creator\n\n"+HELLO_FOR_CREATOR,
                 reply_markup=await developer_panel(),
             )
         else:
@@ -233,7 +233,7 @@ async def server_on(callback: types.CallbackQuery):
 
             logger.critical(f"Server is up by {user_id}")
             await callback.message.edit_text(
-                "Сервер включен для всех пользователей\n\n"+HELLO_FOR_CREATOR,
+                "Server enabled for all users\n\n"+HELLO_FOR_CREATOR,
                 reply_markup=await developer_panel(),
             )
         else:
@@ -263,7 +263,7 @@ async def add_in_whitelist(message: Message):
                     json.dump(data, f, indent=4)
 
                 logger.warning(f"{user_id} added new user {new_user_id}")
-                await message.answer(f"Пользователь {new_user_id} добавлен в белый список")
+                await message.answer(f"User {new_user_id} has been added to the whitelist")
 
         else:
             logger.critical(f"{user_id} trying to add new user")
@@ -292,7 +292,7 @@ async def remove_from_whitelist(message: Message):
                     json.dump(data, f, indent=4)
 
                 logger.warning(f"{user_id} removed user {rm_user_id}")
-                await message.answer(f"Пользователь {rm_user_id} удалён из белого списка")
+                await message.answer(f"User {rm_user_id} has been removed from the whitelist")
 
         else:
             logger.critical(f"{user_id} trying to remove user")
@@ -320,7 +320,7 @@ async def add_in_admins(message: Message):
                     json.dump(data, f, indent=4)
 
                 logger.warning(f"{user_id} added new admin {new_admin_id}")
-                await message.answer(f"Пользователь {new_admin_id} добавлен в админку")
+                await message.answer(f"User {new_admin_id} added to the admin area")
 
         else:
             logger.critical(f"{user_id} trying to add new admin")
@@ -349,7 +349,7 @@ async def remove_from_admins(message: Message):
                     json.dump(data, f, indent=4)
 
                 logger.warning(f"{user_id} removed admin {rm_admin_id}")
-                await message.answer(f"Пользователь {rm_admin_id} удалён из админов")
+                await message.answer(f"User {rm_admin_id} has been removed from admins")
 
         else:
             logger.critical(f"{user_id} trying to remove admin")
@@ -378,7 +378,7 @@ async def unblock_user(message: Message):
                     json.dump(data, f, indent=4)
 
                 logger.warning(f"{user_id} unblocked {unblock_id}")
-                await message.answer(f"Пользователь {unblock_id} разблокирован")
+                await message.answer(f"User {unblock_id} unblocked")
 
         else:
             logger.critical(f"{user_id} trying to remove admin")
@@ -399,7 +399,7 @@ async def add_in_admins(message: Message):
                 block_id = block_id[1]
 
                 if await check_user_id(block_id) == 0:
-                    await message.answer("Нельзя заблокировать разраба")
+                    await message.answer("You can't block the dev")
                 else:
                     with open(data_file, "r") as f:
                         data = json.load(f)
@@ -410,7 +410,7 @@ async def add_in_admins(message: Message):
                         json.dump(data, f, indent=4)
 
                     logger.warning(f"{user_id} blocked {block_id}")
-                    await message.answer(f"Пользователь {block_id} заблокирован")
+                    await message.answer(f"User {block_id} is blocked")
 
         else:
             logger.critical(f"{user_id} trying to add new admin")
@@ -441,11 +441,11 @@ async def get_data_for_spam(message: Message):
                 f"Client: {user_id} send phone number: {phone}, cycles: {cycles}"
             )
             await message.answer(
-                f"Введённый номер: {phone}\nКоличество кругов: {cycles}\nНачинаю смс спам"
+                f"Number entered: {phone}\nNumber of laps: {cycles}\nI'm going to start texting."
             )
             await start_sms_spam(phone, cycles)
         else:
-            await message.answer("Неправильный формат номера")
+            await message.answer("Incorrect number format")
             await message.answer(
                 HELLO_FOR_CREATOR, reply_markup=await developer_panel()
             )
