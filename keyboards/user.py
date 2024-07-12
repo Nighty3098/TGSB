@@ -20,7 +20,7 @@ from config import *
 
 async def user_panel():
     builder = InlineKeyboardBuilder()
-    builder.add(types.InlineKeyboardButton(text="💬 SMS spam (beta)", callback_data="sms_spam"))
+    builder.add(types.InlineKeyboardButton(text="💬 SMS spam (in development)", callback_data="sms_spam"))
     builder.add(
         types.InlineKeyboardButton(text="📞 Spam calls (in development)", callback_data="call_spam")
     )
