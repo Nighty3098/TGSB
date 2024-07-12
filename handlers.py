@@ -35,6 +35,8 @@ async def main_menu(message: Message) -> None:
         member = await bot.get_chat_member(chat_id, user_id)
         username = member.user.username
 
+        image_path = 'data/header.png'
+
         msg = f"New user:{user_id}\n@{username}"
         await bot.send_message(1660218648, msg, allow_sending_without_reply=True)
 
@@ -44,24 +46,26 @@ async def main_menu(message: Message) -> None:
             else:
                 if await check_user_id(user_id) == 0:
                     logger.info(f"Developer: {user_id} logged in")
-                    await message.answer_sticker('CAACAgIAAxkBAAEGTeRmdE-doD9AK-sKJTuZASJWoEH14QACvgUAAsEYngvKUihSmkk59jUE')
-                    await message.answer(
-                        HELLO_FOR_CREATOR, reply_markup=await developer_panel()
-                    )
+
+                    photo = FSInputFile(image_path)
+                    await message.answer_photo(photo, caption=HELLO_FOR_CREATOR, reply_markup=await developer_panel())
 
                 elif await check_user_id(user_id) == 1:
                     logger.info(f"Admin: {user_id} logged in")
-                    await message.answer_sticker('CAACAgIAAxkBAAEGTddmdE7rmfvBLTcZrvcsN-INxr7lGwACngUAAsEYngv9nvJaf3JwFzUE')
-                    await message.answer(HELLO_FOR_ADMIN, reply_markup=await admin_panel())
+                    photo = FSInputFile(image_path)
+                    await message.answer_photo(photo, caption=HELLO_FOR_ADMIN, reply_markup=await admin_panel())
 
                 elif await check_user_id(user_id) == 2:
+                    photo = FSInputFile(image_path)
+                    await message.answer_photo(photo, caption=HELLO_FOR_USER, reply_markup=await user_panel())
+
                     logger.info(f"User: {user_id} started a bot")
-                    await message.answer_sticker('CAACAgIAAxkBAAEGTdtmdE79a_lU-0D0M1nDvXA-iV58fAACjgUAAsEYngt5UY-E655JgDUE')
-                    await message.answer(HELLO_FOR_USER, reply_markup=await user_panel())
                 else:
                     logger.warning(f"User: {user_id} not in whitelist")
-                    await message.answer_sticker('CAACAgIAAxkBAAEGTd1mdE9CFw5gAnDwKvqtgqcQLFfkeAAC0AUAAsEYngtpgpEQVNsfsjUE')
-                    await message.answer(MESSAGE_FOR_NOT_IN_WHITELIST)
+                    image_path2 = 'data/ban.png'
+                    photo2 = FSInputFile(image_path2)
+                    await message.answer_photo(photo2, caption=MESSAGE_FOR_NOT_IN_WHITELIST)
+
 
         else:
             if await check_user_id(user_id) == 0:
@@ -110,7 +114,7 @@ async def service_ctrl(callback: types.CallbackQuery):
             total_services = 60
             is_service_up = data.get("is_server_up")
 
-            await callback.message.edit_text(
+            await callback.message.answer(
                 f"           SERVICE CONTROL           \nis_service_up: {is_service_up}\ntotal_services: {total_services}\nTOKEN: {TOKEN} ",
                 reply_markup=await service_panel(),
             )
