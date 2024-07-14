@@ -2,12 +2,10 @@
 <h3 align="center">!!! Use at your own risk. The developer is not responsible for your actions !!!</h3>
 
 <div class="badges" align="center">
-    <a href="./LICENSE.md"><img  class="badge" src="https://img.shields.io/github/license/Nighty3098/TGSB?style=for-the-badge&color=a6e0b8&logoColor=ffffff&labelColor=1c1c29"  style="border-radius: 5px;"/></a>
     <br><br>
-	<a href="https://discord.gg/#9707" target="blank"><img src="https://img.shields.io/badge/Discord-%237589d5.svg?style=for-the-badge&logo=discord&logoColor=black"/></a>
-	<a href="https://t.me/Night3098" target="blank"><img src="https://img.shields.io/badge/Telegram-7dc4e4?style=for-the-badge&logo=telegram&logoColor=black"/></a>
-	<a href="mailto:night3098game@gmail.com" target="blank"><img src="https://img.shields.io/badge/Gmail-f5a7a0?style=for-the-badge&logo=gmail&logoColor=black"/></a>
-	<a href="https://www.reddit.com/user/Night3098" target="blank"><img src="https://img.shields.io/badge/Reddit-f5a7a0?style=for-the-badge&logo=reddit&logoColor=black"/></a>
+    <img src="data/header.png" />
+    <br><br><br>
+    <a href="./LICENSE.md"><img  class="badge" src="https://img.shields.io/github/license/Nighty3098/TGSB?style=for-the-badge&color=a6e0b8&logoColor=ffffff&labelColor=1c1c29"  style="border-radius: 5px;"/></a>
 	<br><br>
 	<img src="https://img.shields.io/github/created-at/Nighty3098/TGSB?style=for-the-badge&color=7dc4e4&logoColor=D9E0EE&labelColor=1c1c29" style="border-radius: 5px;">
 	<img class="badge" src="https://img.shields.io/github/last-commit/Nighty3098/TGSB?style=for-the-badge&color=7dc4e4&logoColor=D9E0EE&labelColor=1c1c29" style="border-radius: 5px;"/>
@@ -19,13 +17,11 @@
 	<img class="badge" src="https://img.shields.io/github/stars/Nighty3098/TGSB?style=for-the-badge&color=eed49f&logoColor=D9E0EE&labelColor=1c1c29" style="border-radius: 5px;"/>
 	<img class="badge" src="https://img.shields.io/github/forks/Nighty3098/TGSB?style=for-the-badge&color=9dc3ea&logoColor=D9E0EE&labelColor=1c1c29"  style="border-radius: 5px;"/>
 	<br><br>
-	<img class="badge" src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=black&color=7dc4e4" style="border-radius: 5px;"/>
-	<img class="badge" src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=black&color=7dc4e4" style="border-radius: 5px;"/>
+	<img class="badge" src="https://github.com/Nighty3098/DevIcons/blob/main/badges/badges_sqlite.png?raw=true" height="60px"/>
+	<img class="badge" src="https://github.com/Nighty3098/DevIcons/blob/main/badges/badges_python.png?raw=true" height="60px"/>
     <br><br>
     <h3>If you have found bugs in our product or have suggestions, please write about them:</h3>
-    <a href="https://t.me/DXS_TechSupport_bot"><img src="https://github.com/Nighty3098/DevIcons/blob/main/badges/techSupport.png?raw=true" height="35px" /></a>
-    <br>
-    <a href="https://t.me/Night3098" target="blank"><img src="https://github.com/Nighty3098/DevIcons/blob/main/badges/buttons_Telegram_2.png?raw=true" height="35px" /></a>
+    <a href="https://t.me/DXS_TechSupport_bot"><img src="https://github.com/Nighty3098/Nighty3098/blob/main/TechSupport.png?raw=true" width="65%" /></a>
     <br><br><br>
 </div>
 
@@ -33,8 +29,9 @@
 
 
 <h3 align="center">For users</h3>
- - btn - "SMA spam"
- - btn - "Call spam"
+
+ - BTN - "SMA spam"
+ - BTN - "Call spam"
 
 
 <h3 align="center">For admins</h3>
@@ -45,8 +42,8 @@
 - /removeadmin %admin_id% - Remove admin
 - /whitelist - Send whitelist
 
-- btn - "SMS spam"
-- btn - "Call cpam"
+- BTN - "SMS spam"
+- BTN - "Call cpam"
 
 
 <h3 align="center">For creator</h3>
@@ -59,15 +56,15 @@
 - /block %user_id% - Block user
 - /unblock %user_id% - Unblock user
 
-- btn - "Service control" : 
-    - btn - "sys stats"
-    - btn - "logs"
-    - btn - "clear log"
-    - btn - "off"
-    - btn - "on"
+- BTN - "Service control" : 
+    - BTN - "sys stats"
+    - BTN - "logs"
+    - BTN - "clear log"
+    - BTN - "off"
+    - BTN - "on"
 
-- btn - "SMS spam"
-- btn - "Call cpam"
+- BTN - "SMS spam"
+- BTN - "Call cpam"
 
 <h1 align="center">Structure</h1>
 
@@ -153,7 +150,14 @@ source TGSB/bin/activate
 
 pip3 install -r requirements.txt
 
-TGSB_TOKEN=%токен_вашего_бота% python3 main.py
+TGSB_TOKEN=%bot_token% python3 main.py
 ```
 
 
+
+<div align="center">
+    <h1>Contact with me:</h1>
+	<a href="https://discord.gg/#9707" target="blank"><img src="https://github.com/Nighty3098/DevIcons/blob/main/badges/badges_discord.png?raw=true" height="60px"/></a>
+	<a href="https://t.me/Night3098" target="blank"><img src="https://github.com/Nighty3098/DevIcons/blob/main/badges/badges_telegram.png?raw=true" height="60px"/></a>
+	<a href="https://www.reddit.com/user/Night3098" target="blank"><img src="https://github.com/Nighty3098/DevIcons/blob/main/badges/badges_reddit.png?raw=true" height="60px"/></a>
+</div>
