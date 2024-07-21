@@ -47,13 +47,12 @@ async def main_menu(message: Message) -> None:
                 if await check_user_id(user_id) == 0:
                     logger.info(f"Developer: {user_id} logged in")
 
-                    photo = FSInputFile(image_path)
-                    await message.answer_photo(photo, caption=HELLO_FOR_CREATOR, reply_markup=await developer_panel())
+                    await message.answer(HELLO_FOR_CREATOR)
 
                 elif await check_user_id(user_id) == 1:
                     logger.info(f"Admin: {user_id} logged in")
-                    photo = FSInputFile(image_path)
-                    await message.answer_photo(photo, caption=HELLO_FOR_ADMIN, reply_markup=await admin_panel())
+
+                    await message.answer(HELLO_FOR_ADMIN)
 
                 elif await check_user_id(user_id) == 2:
                     photo = FSInputFile(image_path)
