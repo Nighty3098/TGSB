@@ -427,7 +427,7 @@ async def add_in_admins(message: Message):
 
 @dp.callback_query(F.data == "sms_spam")
 async def get_phone_number(callback: types.CallbackQuery):
-    await callback.message.edit_text(GET_PHONE)
+    await callback.message.answer(GET_PHONE)
 
 
 @dp.message()
