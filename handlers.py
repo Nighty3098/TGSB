@@ -113,7 +113,7 @@ async def service_ctrl(callback: types.CallbackQuery):
             total_services = 60
             is_service_up = data.get("is_server_up")
 
-            await callback.message.answer(
+            await callback.message.edit_text(
                 f"           SERVICE CONTROL           \nis_service_up: {is_service_up}\ntotal_services: {total_services}\nTOKEN: {TOKEN} ",
                 reply_markup=await service_panel(),
             )
