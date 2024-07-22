@@ -47,12 +47,14 @@ async def main_menu(message: Message) -> None:
                 if await check_user_id(user_id) == 0:
                     logger.info(f"Developer: {user_id} logged in")
 
-                    await message.answer(HELLO_FOR_CREATOR, reply_markup=await developer_panel());
+                    photo = FSInputFile(image_path)
+                    await message.answer_photo(photo, caption=HELLO_FOR_CREATOR, reply_markup=await developer_panel())
 
                 elif await check_user_id(user_id) == 1:
                     logger.info(f"Admin: {user_id} logged in")
 
-                    await message.answer(HELLO_FOR_ADMIN, reply_markup=await admin_panel())
+                    photo = FSInputFile(image_path)
+                    await message.answer_photo(photo, caption=HELLO_FOR_ADMIN, reply_markup=await admin_panel())
 
                 elif await check_user_id(user_id) == 2:
                     photo = FSInputFile(image_path)
@@ -103,6 +105,7 @@ async def system_stats(callback: types.CallbackQuery):
 
 
 
+
 @dp.callback_query(F.data == "service_ctrl")
 async def service_ctrl(callback: types.CallbackQuery):
     try:
@@ -113,8 +116,10 @@ async def service_ctrl(callback: types.CallbackQuery):
             total_services = 60
             is_service_up = data.get("is_server_up")
 
-            await callback.message.edit_text(
-                f"           SERVICE CONTROL           \nis_service_up: {is_service_up}\ntotal_services: {total_services}\nTOKEN: {TOKEN} ",
+            message_id = callback.message.message_id
+
+            await bot.edit_message_caption(chat_id=callback.message.chat.id, message_id=message_id, caption=
+            f"           SERVICE CONTROL           \nis_service_up: {is_service_up}\ntotal_services: {total_services}\nTOKEN: {TOKEN} ",
                 reply_markup=await service_panel(),
             )
         else:
@@ -126,12 +131,13 @@ async def service_ctrl(callback: types.CallbackQuery):
 
 
 
+
 @dp.callback_query(F.data == "menu")
 async def menu(callback: types.CallbackQuery):
     try:
-        # await main_menu(callback.message)
-        await callback.message.edit_text(
-            HELLO_FOR_CREATOR, reply_markup=await developer_panel()
+        message_id = callback.message.message_id
+
+        await bot.edit_message_caption(chat_id=callback.message.chat.id, message_id=message_id, caption=HELLO_FOR_CREATOR, reply_markup=await developer_panel()
         )
     except Exception as err:
         logger.error(f"{err}")
@@ -426,7 +432,8 @@ async def add_in_admins(message: Message):
 
 @dp.callback_query(F.data == "sms_spam")
 async def get_phone_number(callback: types.CallbackQuery):
-    await callback.message.answer(GET_PHONE)
+    message_id = callback.message.message_id
+    await bot.edit_message_caption(chat_id=callback.message.chat.id, message_id=message_id, caption=GET_PHONE)
 
 
 @dp.message()
