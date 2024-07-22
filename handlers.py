@@ -137,8 +137,8 @@ async def menu(callback: types.CallbackQuery):
     try:
         message_id = callback.message.message_id
 
-        await bot.edit_message_caption(chat_id=callback.message.chat.id, message_id=message_id, caption=HELLO_FOR_CREATOR, reply_markup=await developer_panel()
-        )
+        await bot.edit_message_caption(chat_id=callback.message.chat.id, message_id=message_id, caption=HELLO_FOR_CREATOR, reply_markup=await developer_panel())
+
     except Exception as err:
         logger.error(f"{err}")
         await send_log_to_dev()
