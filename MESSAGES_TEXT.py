@@ -55,7 +55,7 @@ RM_LOG = """
 
 GET_PHONE = """
 💬 Enter with a space:
-        Phone number in 8XXXXXXXXXXXXXXXXXXXXXXXX format
+        Phone number in 8XXXXXXXXXXX format
         Number of laps
 """
 
@@ -65,3 +65,7 @@ Sory (
 """
 
 SMS_ERR = """ 🔴 SMS Spam error 🔴"""
+
+SPAM_DONE = """
+🟢 Spam successfully completed 🟢
+"""

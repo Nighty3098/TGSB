@@ -442,8 +442,7 @@ async def get_data_for_spam(message: Message):
         data = message.text
         data = data.split(" ")
 
-        phone = str(data[0])
-        phone = "7" + phone[1:]
+        phone = parse_phone(str(data[0]))
         cycles = int(data[1])
 
         if phone_pattern.match(str(phone)):
@@ -451,14 +450,17 @@ async def get_data_for_spam(message: Message):
                 f"Client: {user_id} send phone number: {phone}, cycles: {cycles}"
             )
             await message.answer(
-                f"Number entered: {phone}\nNumber of laps: {cycles}\nI'm going to start texting."
+                f"🟢 Number entered: {phone}\n🟢 Number of laps: {cycles}\n✅ I'm going to start texting."
             )
-            await start_sms_spam(phone, cycles)
+            await start_sms_spam(phone, cycles, message)
+            await message.answer(SPAM_DONE)
         else:
-            await message.answer("Incorrect number format")
-            await message.answer(
-                HELLO_FOR_CREATOR, reply_markup=await developer_panel()
-            )
-    except Exception as err:
+            await message.answer(" ❌ Incorrect number format ❌ ")
+            await main_menu(message)
+
+    except IndexError as err :
+        logger.error(f"{err}")
+        await message.answer(" ❌ Incorrect input format. Try again ❌ ")
+    except Exception as err :
         logger.error(f"{err}")
         await send_log_to_dev()
