@@ -71,9 +71,9 @@ async def main_menu(message: Message) -> None:
         else:
             if await check_user_id(user_id) == 0:
                 logger.info(f"Developer: {user_id} logged in")
-                await message.answer(
-                    HELLO_FOR_CREATOR, reply_markup=await developer_panel()
-                )
+
+                photo = FSInputFile(image_path)
+                await message.answer_photo(photo, caption=HELLO_FOR_CREATOR, reply_markup=await developer_panel())
             else:
                 logger.warning("Server is not up")
                 await message.answer(SERVER_IS_NOT_UP)
@@ -215,13 +215,10 @@ async def server_off(callback: types.CallbackQuery):
                 json.dump(data, f, indent=4)
 
             logger.critical(f"Server is down by {user_id}")
-            await callback.message.edit_text(
-                "The server is disabled for everyone except the creator\n\n"+HELLO_FOR_CREATOR,
-                reply_markup=await developer_panel(),
-            )
+            await callback.message.answer("The server is disabled for everyone except the creator\n\n")
         else:
             logger.critical(f"{user_id} trying to stop server")
-            await callback.message.edit_text(NO_ACCESS)
+            await callback.message.answer(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
         await send_log_to_dev()
@@ -241,13 +238,10 @@ async def server_on(callback: types.CallbackQuery):
                 json.dump(data, f, indent=4)
 
             logger.critical(f"Server is up by {user_id}")
-            await callback.message.edit_text(
-                "Server enabled for all users\n\n"+HELLO_FOR_CREATOR,
-                reply_markup=await developer_panel(),
-            )
+            await callback.message.answer("Server enabled for all users\n\n")
         else:
             logger.critical(f"{user_id} trying to start server")
-            await callback.message.edit_text(NO_ACCESS)
+            await callback.message.answer(NO_ACCESS)
     except Exception as err:
         logger.error(f"{err}")
         await send_log_to_dev()
