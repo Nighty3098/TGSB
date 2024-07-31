@@ -5,25 +5,24 @@ import re
 
 import psutil
 import requests
-from aiogram import *
-from aiogram.enums import *
-from aiogram.filters import *
-from aiogram.filters import callback_data
-from aiogram.types import *
-from aiogram.types import message
-from aiogram.utils.keyboard import InlineKeyboardBuilder
-from aiogram.utils.markdown import *
-from requests.models import *
 
-from config import *
-from keyboards.admin import *
-from keyboards.dev import *
-from keyboards.service import *
-from keyboards.user import *
-from MESSAGES_TEXT import *
-from spam.spam import *
-from validate import *
-from logs.send_logs import *
+from aiogram import handlers, F, types
+from aiogram.types import Message
+from aiogram.filters import CommandStart, Filter, Command
+from aiogram.types.input_file import InputFile
+from aiogram.types import FSInputFile
+from aiogram.fsm.context import FSMContext
+
+from config import logger, data_file, log_file, bot, TOKEN, phone_pattern, dp
+from keyboards.admin import admin_panel
+from keyboards.dev import developer_panel
+from keyboards.service import service_panel
+from keyboards.user import user_panel
+from MESSAGES_TEXT import HELLO_FOR_ADMIN, HELLO_FOR_CREATOR, HELLO_FOR_USER, MESSAGE_FOR_NOT_IN_WHITELIST, SERVER_IS_NOT_UP, NO_ACCESS, FILE_NOT_FOUND, DONE, RM_LOG, GET_PHONE, BLACKLIST, SMS_ERR, SPAM_DONE
+from spam.spam import start_sms_spam
+from spam.mask import mask, parse_phone, format_phone
+from validate import check_server, check_user_id
+from logs.send_logs import send_log_to_dev
 
 @dp.message(CommandStart())
 async def main_menu(message: Message) -> None:

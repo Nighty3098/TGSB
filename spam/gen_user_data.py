@@ -6,8 +6,7 @@ import requests
 from requests import get, post
 from user_agent import generate_user_agent
 
-from config import *
-from handlers import *
+from config import logger, data_file, log_file, bot, TOKEN, phone_pattern, dp, usernames
 
 async def gen_password():
     password = ""
