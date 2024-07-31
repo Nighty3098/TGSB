@@ -1,14 +1,7 @@
 import asyncio
 
-from aiogram import *
-from aiogram.enums import *
-from aiogram.filters import *
-from aiogram.filters import callback_data
-from aiogram.types import *
-from aiogram.utils.keyboard import InlineKeyboardBuilder
-from aiogram.utils.markdown import *
-from requests.models import *
-
+from aiogram import Bot
+from aiogram.dispatcher.dispatcher import Dispatcher
 
 from handlers import *
 

@@ -4,11 +4,9 @@ import sys
 
 import loguru
 import pretty_errors
-import aiogram.enums 
-import aiogram.filters 
-import aiogram.types
-import aiogram.utils.markdown 
-from aiogram import * 
+
+from aiogram import Bot
+from aiogram.dispatcher.dispatcher import Dispatcher
 
 # users role
 # 0 - creator

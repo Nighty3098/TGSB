@@ -1,3 +1,5 @@
+from config import logger
+
 def mask(str, maska):
     try:
         if len(str) == maska.count('#'):

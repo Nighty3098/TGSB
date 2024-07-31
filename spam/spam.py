@@ -7,15 +7,17 @@ import requests
 from requests import get, post
 from user_agent import generate_user_agent
 
+from aiogram.types import Message
+
 from spam.gen_user_data import gen_agents, gen_email, gen_password, gen_username
-from spam.proxy import *
-from spam.mask import *
-from logs.send_logs import *
+from spam.proxy import generate_proxy
+from spam.mask import mask, parse_phone, format_phone
+from logs.send_logs import send_log_to_dev
 
 from MESSAGES_TEXT import SMS_ERR
 
 sys.path.append("../")
-from config import *
+from config import logger, data_file, log_file, bot, TOKEN, phone_pattern, dp
 
 async def start_sms_spam(phone, cycles, message: Message):
     try:

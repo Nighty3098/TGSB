@@ -3,19 +3,11 @@ import json
 import logging
 import sys
 
-import psutil
-import requests
-from aiogram import *
-from aiogram.enums import *
-from aiogram.filters import *
-from aiogram.filters import callback_data
-from aiogram.types import *
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-from aiogram.utils.markdown import *
-from requests.models import *
+from aiogram import types
 
 sys.path.append("../")
-from config import *
+from config import logger, data_file, log_file, bot, TOKEN, phone_pattern, dp
 
 
 async def user_panel():

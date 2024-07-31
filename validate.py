@@ -1,7 +1,7 @@
 import asyncio
 import json
 
-from config import *
+from config import data_file, log_file, logger
 
 
 async def check_user_id(user_id):
