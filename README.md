@@ -1,9 +1,10 @@
-<h1 align="center">TGSB - SMS bomber. TG bot service written in python and aiogram</h1>
-<h3 align="center">!!! Use at your own risk. The developer is not responsible for your actions !!!</h3>
 
-<div class="badges" align="center">
-    <br><br>
-    <img src="data/header.png" />
+# TGSB - SMS bomber. TG bot service written in python and aiogram 
+> [!important] !!! Use at your own risk. The developer is not responsible for your actions !!!
+
+![header](./data/header.png)
+
+<div class="badges" align="center">    
     <br><br><br>
     <a href="./LICENSE.md"><img  class="badge" src="https://img.shields.io/github/license/Nighty3098/TGSB?style=for-the-badge&color=a6e0b8&logoColor=ffffff&labelColor=1c1c29"  style="border-radius: 5px;"/></a>
 	<br><br>
@@ -25,16 +26,16 @@
     <br><br><br>
 </div>
 
-<h2 align="center">Functional:</h2>
+## Functional:
 
 
-<h3 align="center">For users</h3>
+### For users
 
  - BTN - "SMA spam"
  - BTN - "Call spam"
 
 
-<h3 align="center">For admins</h3>
+### For admins
 
 - /adduser %user_id% - Add user to whitelist
 - /removeuser %user_id% - Remove user from whitelist
@@ -46,7 +47,7 @@
 - BTN - "Call cpam"
 
 
-<h3 align="center">For creator</h3>
+### For creator
 
 - /addadmin %admin_id% - Add adnim
 - /removeadmin %admin_id% - Remove admin
@@ -66,7 +67,7 @@
 - BTN - "SMS spam"
 - BTN - "Call cpam"
 
-<h1 align="center">Structure</h1>
+# Structure
 
 ```
 .
@@ -96,7 +97,7 @@
 └── validate.py
 ```
 
-<h1 align="center">Dependencies</h1>
+# Dependencies
 
 ```
 aiofiles==23.2.1
@@ -138,8 +139,7 @@ yarg==0.1.9
 yarl==1.9.4
 ```
 
-<h1 align="center">Installing</h1>
-
+# Installing
 
 ```
 git clone https://github.com/Nighty3098/TGSB 
