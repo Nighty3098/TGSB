@@ -1,6 +1,7 @@
 
 # TGSB - SMS bomber. TG bot service written in python and aiogram 
-> [!important] !!! Use at your own risk. The developer is not responsible for your actions !!!
+> [!warning]
+> !!! Use at your own risk. The developer is not responsible for your actions !!!
 
 ![header](./data/header.png)
 
