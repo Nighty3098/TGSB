@@ -445,7 +445,7 @@ async def get_data_for_spam(message: Message):
             await message.answer(
                 f"🟢 Number entered: {phone}\n🟢 Number of laps: {cycles}\n✅ I'm going to start texting."
             )
-            await start_sms_spam(phone, cycles, message)
+            await start_sms_spam(phone, cycles)
             await message.answer(SPAM_DONE)
         else:
             await message.answer(" ❌ Incorrect number format ❌ ")

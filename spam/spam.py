@@ -19,7 +19,7 @@ from MESSAGES_TEXT import SMS_ERR
 sys.path.append("../")
 from config import logger, data_file, log_file, bot, TOKEN, phone_pattern, dp
 
-async def start_sms_spam(phone, cycles, message: Message):
+async def start_sms_spam(phone, cycles):
     for i in range(0, cycles):
         password = await gen_password()
         email = await gen_email()

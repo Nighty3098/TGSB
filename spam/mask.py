@@ -26,4 +26,4 @@ def parse_phone(phone):
             phone = "7" + phone
         return phone
     else:
-        pass
+        logger.debug(f"Phone len: {len(phone)} not on [10, 11, 12]")
