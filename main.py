@@ -3,7 +3,8 @@ import asyncio
 from aiogram import Bot
 from aiogram.dispatcher.dispatcher import Dispatcher
 
-from handlers import *
+from handlers import main_menu
+from config import logger, data_file, log_file, bot, TOKEN, phone_pattern, dp
 
 
 async def main() -> None:
