@@ -3,6 +3,10 @@
 > [!warning]
 > !!! Use at your own risk. The developer is not responsible for your actions !!!
 
+> [!warning]
+> The bot is under development, so not all functionality works correctly.
+
+
 ![header](./data/header.png)
 
 <div class="badges" align="center">    
@@ -23,6 +27,7 @@
 	<img class="badge" src="https://github.com/Nighty3098/DevIcons/blob/main/badges/badges_python.png?raw=true" height="60px"/>
     <br><br>
     <h3>If you have found bugs in our product or have suggestions, please write about them:</h3>
+    <br><br>
     <a href="https://t.me/DXS_TechSupport_bot"><img src="https://github.com/Nighty3098/DevIcons/blob/main/badges/badges_TechSupport.png?raw=true" height="40px" /></a>
     <br><br><br>
 </div>
