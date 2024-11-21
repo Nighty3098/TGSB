@@ -27,7 +27,8 @@
 	<img class="badge" src="https://github.com/Nighty3098/DevIcons/blob/main/badges/badges_python.png?raw=true" height="60px"/>
     <br><br>
     <h3>If you have found bugs in our product or have suggestions, please write about them:</h3>
-    <a href="https://t.me/DXS_TechSupport_bot"><img src="https://github.com/Nighty3098/DevIcons/blob/main/badges/TechSupport.png" width="50%" /></a>
+    <br><br>
+    <a href="https://t.me/DXS_TechSupport_bot"><img src="https://github.com/Nighty3098/DevIcons/blob/main/badges/badges_TechSupport.png?raw=true" height="40px" /></a>
     <br><br><br>
 </div>
 
