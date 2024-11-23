@@ -4,3 +4,4 @@ TGSB
 src/.env
 logs/TGSB.log
 /keyboards/__pycache__
+src/.env
