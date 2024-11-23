@@ -4,6 +4,7 @@ import sys
 
 import loguru
 import pretty_errors
+from dotenv import load_dotenv
 
 from aiogram import Bot
 from aiogram.dispatcher.dispatcher import Dispatcher
@@ -14,10 +15,13 @@ from aiogram.dispatcher.dispatcher import Dispatcher
 # 2 - user
 # 3 - don't access
 
+load_dotenv()
+
 home_dir = os.environ['HOME']
 TOKEN = os.getenv("TGSB_TOKEN")
-data_file = "data/data.json"
-log_file = home_dir + "/logs/TGSB.log";
+
+data_file = os.path.join("data", "data.json")
+log_file = os.path.join(home_dir, "TGSB_data", "TGSB.log")
 usernames = "data/names.txt"
 
 bot = Bot(TOKEN)
@@ -27,9 +31,7 @@ phone_pattern = re.compile(
     r"^(\+?7|8)?[-\s.]?(\d{3})[-\s.]?(\d{3})[-\s.]?(\d{2})[-\s.]?(\d{2})$"
 )
 
-
 logger = loguru.logger
-
 
 logger.level("DEBUG", color="<green>")
 logger.level("INFO", color="<cyan>")

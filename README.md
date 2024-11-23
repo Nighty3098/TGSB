@@ -3,11 +3,8 @@
 > [!warning]
 > !!! Use at your own risk. The developer is not responsible for your actions !!!
 
-> [!warning]
-> The bot is under development, so not all functionality works correctly.
 
-
-![header](./data/header.png)
+![header](./data/src/header.png)
 
 <div class="badges" align="center">    
     <br><br><br>

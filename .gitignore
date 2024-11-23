@@ -3,3 +3,4 @@ __pycache__
 TGSB
 
 logs/TGSB.log
+/keyboards/__pycache__

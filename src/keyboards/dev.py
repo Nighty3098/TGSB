@@ -18,9 +18,6 @@ async def developer_panel():
         )
     )
     builder.add(types.InlineKeyboardButton(text="💬 SMS spam (beta)", callback_data="sms_spam"))
-    builder.add(
-        types.InlineKeyboardButton(text="📞 Spam calls (in development)", callback_data="call_spam")
-    )
     builder.adjust(1)
 
     logger.debug("Create developer panel")

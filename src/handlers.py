@@ -421,13 +421,10 @@ async def add_in_admins(message: Message):
         logger.error(f"{err}")
         await send_log_to_dev()
 
-
-
 @dp.callback_query(F.data == "sms_spam")
 async def get_phone_number(callback: types.CallbackQuery):
     message_id = callback.message.message_id
     await bot.edit_message_caption(chat_id=callback.message.chat.id, message_id=message_id, caption=GET_PHONE)
-
 
 @dp.message()
 async def get_data_for_spam(message: Message):
