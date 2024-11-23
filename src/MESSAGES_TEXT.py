@@ -6,7 +6,6 @@ The following commands are available for you:
 ➡️ /removeuser %user_id% - Remove user from whitelist
 ➡️ /addadmin %admin_id% - Add admin
 ➡️ /removeadmin %admin_id% - Remove admin
-➡️ /whitelist - Display whitelist contents
 """
 
 HELLO_FOR_CREATOR = """
