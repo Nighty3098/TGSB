@@ -4,8 +4,6 @@
 > !!! Use at your own risk. The developer is not responsible for your actions !!!
 
 
-![header](./data/src/header.png)
-
 <div class="badges" align="center">    
     <br><br><br>
     <a href="./LICENSE.md"><img  class="badge" src="https://img.shields.io/github/license/Nighty3098/TGSB?style=for-the-badge&color=a6e0b8&logoColor=ffffff&labelColor=1c1c29"  style="border-radius: 5px;"/></a>
