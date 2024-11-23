@@ -1,10 +1,9 @@
 
-# TGSB - SMS bomber. TG bot service written in python and aiogram 
+# TGSB - SMS bomber. TG bot service written in python and aiogram [DEAD]
 > [!warning]
 > !!! Use at your own risk. The developer is not responsible for your actions !!!
 
-
-![header](./data/src/header.png)
+![N9GROUP_header](https://github.com/user-attachments/assets/c8f58bc7-2e0e-4d09-8cf5-95e828ed91db)
 
 <div class="badges" align="center">    
     <br><br><br>
@@ -69,93 +68,6 @@
 
 - BTN - "SMS spam"
 - BTN - "Call cpam"
-
-# Structure
-
-```
-.
-├── config.py
-├── create_requirements.sh
-├── data
-│   ├── data.json
-│   └── names.txt
-├── handlers.py
-├── keyboards
-│   ├── admin.py
-│   ├── dev.py
-│   ├── service.py
-│   └── user.py
-├── LICENSE
-├── logs
-│   └── TGSB.log
-├── main.py
-├── MESSAGES_TEXT.py
-├── README.md
-├── requirements.txt
-├── spam
-│   ├── gen_user_data.py
-│   ├── mask.py
-│   ├── proxy.py
-│   └── spam.py
-└── validate.py
-```
-
-# Dependencies
-
-```
-aiofiles==23.2.1
-aiogram==3.3.0
-aiogram-dialog==2.1.0
-aiohttp==3.9.3
-aiosignal==1.3.1
-annotated-types==0.6.0
-anyio==4.2.0
-attrs==23.2.0
-cachetools==5.3.2
-certifi==2024.2.2
-charset-normalizer==3.3.2
-colorama==0.4.6
-docopt==0.6.2
-frozenlist==1.4.1
-h11==0.14.0
-httpcore==1.0.2
-httpx==0.25.2
-idna==3.6
-Jinja2==3.1.3
-loguru==0.7.2
-magic-filter==1.0.12
-MarkupSafe==2.1.5
-multidict==6.0.5
-pipreqs==0.4.13
-pretty-errors==1.2.25
-psutil==5.9.8
-pydantic==2.5.3
-pydantic_core==2.14.6
-python-telegram-bot==20.7
-requests==2.31.0
-six==1.16.0
-sniffio==1.3.0
-typing_extensions==4.9.0
-urllib3==2.2.0
-user_agent==0.1.10
-yarg==0.1.9
-yarl==1.9.4
-```
-
-# Installing
-
-```
-git clone https://github.com/Nighty3098/TGSB 
-cd TGSB
-
-python3 -m venv TGSB
-source TGSB/bin/activate
-
-pip3 install -r requirements.txt
-
-TGSB_TOKEN=%bot_token% python3 main.py
-```
-
 
 
 <div align="center">
