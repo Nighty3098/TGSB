@@ -1,8 +1,9 @@
 
-# TGSB - SMS bomber. TG bot service written in python and aiogram 
+# TGSB - SMS bomber. TG bot service written in python and aiogram [DEAD]
 > [!warning]
 > !!! Use at your own risk. The developer is not responsible for your actions !!!
 
+![N9GROUP_header](https://github.com/user-attachments/assets/c8f58bc7-2e0e-4d09-8cf5-95e828ed91db)
 
 <div class="badges" align="center">    
     <br><br><br>
