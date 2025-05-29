@@ -10,7 +10,7 @@ from config import logger, data_file, log_file, bot, TOKEN, phone_pattern, dp, u
 
 async def gen_password():
     password = ""
-    for i in range(14):
+    for _ in range(14):
         password += choice(
             "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
         )
@@ -33,7 +33,7 @@ async def gen_username():
 async def gen_email():
     email = ""
 
-    for i in range(10):
+    for _ in range(10):
         email += choice("qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM")
 
     email += "@gmail.com"
